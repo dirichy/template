@@ -1,0 +1,27 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+%这是main文件，请不要修改也不要删除，直接在subfile中编写和编译即可。
+\usepackage[v1]{subfiles}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{fixdif}
+\usepackage{amsmath,amsthm,amscd,amsfonts,mathrsfs,amssymb,mathabx,bm,mathtools}
+\usepackage{enumerate} %tablists中的tabenum环境可实现一行多个小题自动编号
+\usepackage{hyperref}
+\usepackage{geometry} %页边距
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{defination}{定义} 
+\newtheorem{corollary}{推论}
+\renewcommand{\(}{\begin{math}\displaystyle}
+\renewcommand{\)}{\end{math}}
+\newcommand{\filename}{main}
+\let\abslabel\label
+\let\absref\ref
+\let\abseqref\eqref
+\renewcommand{\label}[1]{\abslabel{\expandafter\filename:#1}}
+\begin{document}
+\renewcommand{\ref}[1]{\absref{\expandafter\filename:#1}}
+\renewcommand{\eqref}[1]{\abseqref{\expandafter\filename:#1}}
+\subfile{subfile.tex}
+\end{document}
