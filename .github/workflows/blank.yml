@@ -9,7 +9,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: template/main.tex
+          root_file: main.tex
           latexmk_use_xelatex: true
           post_compile: "latexmk -C"
           working_directory: template
