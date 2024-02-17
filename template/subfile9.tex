@@ -12,7 +12,7 @@
 \section{高次方程一般没有根式解}
 \subsection{背景介绍}
 解代数方程一直是数学中的重要问题.对于二次方程\(ax^2+bx+c=0,a \neq 0\)而言,我们很容易能解出其两个根为\(x= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\).
-事实上,古巴比伦留下的陶片显示,在大约公元前2000年（2000 BC）古巴比伦的数学家就能解一元二次方程了.
+事实上,古巴比伦留下的陶片显示,在大约公元前2000年(2000 BC)古巴比伦的数学家就能解一元二次方程了.
 对于三次方程\(ax^3+bx^2+cx+d=0,a \neq 0\)而言,由于涉及到复数开根,所以其一般解被发现的较晚.
 一般而言我们认为是尼科洛·塔尔塔利亚最早在1553年发现了三次方程的一般解.
 三次方程的根式解复杂程度比二次方程提高了很多,其中包括了开三次根、复数等运算.
@@ -23,31 +23,31 @@
 然而无论数学家如何改进解方程的方法,都无法在与五次方程斗争的路上前进哪怕一小步.
 终于,在1824年,阿贝尔证明了一般的五次方程没有根式解.
 之后,伽罗瓦创造性地引入了群这一数学概念,对方程是否存在根式解给出了一个具体的刻画.
-至此,解代数方程的这一挑战才画上（不那么完美的）句号.
+至此,解代数方程的这一挑战才画上(不那么完美的)句号.
 \subsection{定理叙述}
 要想证明高次方程无根式解,我们首先需要定义什么叫根式解.所谓根式解就是用加、减、乘、除、开\(n\)次根号进行有限次迭代的解.
 具体而言,我们有
-\begin{defination}\label{def:1}
+\begin{definition}\label{def:1}
 	设\(f( x) \in K[ x]\)是一个多项式,其中\(K\)是一个域.若存在域扩张链
 	\[
 		K=K_0 \subset K_1 \subset K_2 \subset \cdots \subset K_m
 	\]
 	满足\(K_m\)包含\(f\)的所有根,且对于\(t=0,\cdots,m-1\),有\(K_{t+1}=K_t[ a]\),其中\(a\)满足\(\exists n \in \mathbb{N},a^n \in K_t\).
 	则称\(f\)有根式解,或者\(f\)根式可解.
-\end{defination}
+\end{definition}
 阿贝尔发现五次方程一般没有根式解,即
 \begin{theorem}\label{the:1}
 	存在一个五次多项式\(f\)使得\(f\)根式不可解.
 \end{theorem}
 伽罗瓦在描述可解性的时候引入了伽罗瓦群的概念.
-\begin{defination}\label{def:2}
+\begin{definition}\label{def:2}
 	设\(f( x) \in K[ x]\)为一个多项式,设\(F\)为\(f\)的分裂域.
 	定义\(f\)的伽罗瓦群为\(\gal_K( f)=\{ \sigma :\sigma \text{是}F \text{的自同构,且}\sigma|_K=\id\}\).
-\end{defination}
+\end{definition}
 同时与可解多项式对应地定义了可解群.
-\begin{defination}\label{def:3}
+\begin{definition}\label{def:3}
 	若一个有限群\(G\)满足存在正规子群链\(G=G_m \unrhd G_{m-1} \unrhd \cdots \unrhd G_0\),且\(G_{t+1} / G_t\)都是循环群,则称\(G\)是可解群.
-\end{defination}
+\end{definition}
 伽罗瓦神奇地洞察了可解多项式与可解群的关系,即
 \begin{theorem}\label{the:2}
 	如果\(f\)可根式解,那么\(\gal_K( f)\)是可解群；
