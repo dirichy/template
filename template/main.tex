@@ -1,7 +1,9 @@
 %!TEX TS-program = xelatex
+%!languagre = zh
 \documentclass{ctexart}
 %这是main文件，请不要修改也不要删除，直接在subfile中编写和编译即可。
 \usepackage[v1]{subfiles}
+\usepackage{forloop}
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{graphicx}
@@ -20,15 +22,24 @@
 \newtheorem{lemma}{引理}
 \newtheorem{defination}{定义} 
 \newtheorem{corollary}{推论}
+\newtheorem{example}{例}
+\newtheorem{remark}{注}
 \renewcommand{\(}{\begin{math}\displaystyle}
 \renewcommand{\)}{\end{math}}
 \newcommand{\filename}{main}
 \let\abslabel\label
 \let\absref\ref
 \let\abseqref\eqref
+\newcounter{files}
 \renewcommand{\label}[1]{\abslabel{\expandafter\filename:#1}}
 \begin{document}
 \renewcommand{\ref}[1]{\absref{\expandafter\filename:#1}}
 \renewcommand{\eqref}[1]{\abseqref{\expandafter\filename:#1}}
-\subfile{subfile.tex}
+\forloop{files}{1}{\value{files}<28}{%
+	\IfFileExists{subfile\thefiles.tex}{%
+		\subfile{subfile\thefiles.tex}%
+		\newpage%
+	}{}%
+}
+
 \end{document}

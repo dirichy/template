@@ -1,0 +1,87 @@
+%!TEX TS-program = xelatex
+\documentclass[main]{subfiles}
+%这是一个子文件,单独编译时会自动导入main文件的导言区
+%这里可以放自定义命令,不会和别人的冲突请放心
+%但是不能放newtheorem等高级命令,需要请在群里说
+%下面是一些数学命令的简化,可以保留,可以删去,也可以按你的习惯修改
+\def\e{\textup{e}}
+\def\i{\textup{i}}
+\def\T{\textup{T}}
+\def\diag{\textup{diag}}
+\def\id{\textup{id}}
+\newcommand{\toi}[1]{{#1}\to\infty}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\bv}{\mathrm{BV}}
+\newcommand{\ac}{\mathrm{AC}}
+\newcommand{\mr}{\mathbb{R}}
+\newcommand{\mn}{\mathbb{N}}
+\newcommand{\mq}{\mathbb{Q}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\rel}{\text{ rel }}
+\newcommand{\sgn}{\operatorname{sign}}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\bs}{\backslash}
+\newcommand{\Span}{\operatorname{span}}
+\renewcommand{\ll}{\lim\limits}
+\renewcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\hom}{\operatorname{Hom}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\begin{document}
+\renewcommand{\filename}{No. 27 Theorem}%在这里填你的文件名,避免\label冲突
+%这里开始写你的代码
+\section{Gauss-Bonnet-Chern定理}
+\subsection{一切的起点：三角形内角和}
+古希腊的 Pythagoras 学派在数学上有很多重要的发现,其中有两个定理 , 其一是 Pythagoras 定理,
+是指欧式空间内的直角三角形的两条直角边的平方和等于斜边的平方 ,
+另一个定理是欧式空间中的三角形的内角和等于 180° ,
+即对平面上的任何一个三角形 , 若令 $\alpha,\beta,\gamma$为三角形的三个内角 ,
+则有$\alpha+\beta+\gamma=\pi$ ,
+然后就可以发现三角形中的内角和是一个几何不变量 , 尽管三个内角
+$\alpha,\beta,\gamma$
+会因为三角形形状的不同而取值不同.\par
+那么对于一般的多边形,是否还有这样的规律呢？接下来可以看到的事实是凸 $n$
+边形的内角和是随 $n$的变化而变化 , 但外角和是一个常数 $2\pi $, 是一个几何不变量.并发现了如下定理:
+\begin{theorem}\label{thm:1}
+	设 $P$ 是平面上的一个最一般的多边形,分为 $m$ 块且含有 $g$ 个洞,$P$ 的转角和$A(P)$ 满足$A(P)=2\pi(m-g)\:.$
+
+\end{theorem}
+
+\subsection{Euler数}
+定理1公式的右端其实就是Euler数.在1751 年大数学家 Euler 指出 , 对于三维空间中的任意闭的凸多面体 , 它的顶点数 $V$
+, 棱数$E$
+和面数 $F$
+满足恒等式$V-E+F=2$.这就是多面体的Euler公式.
+对于一般的流形$M$, 根据它的一个单纯剖分,则可以计算它的各个维数单形的个数,如$n$-单形共有$C_n$ 个,
+则$M$ 的 Euler 数为 $\displaystyle\sum(-1)^nC_n$ ,记作 $\chi(M)$ ,且 $\chi(M)$ 是一个拓扑不变量,与 $M$ 的单纯剖分的选取无关.
+
+\subsection{Gauss-Bonnet-Chern 定理}
+对于球面,即$\mathbb{S}^2$上的三角形内角和,我们有$\alpha+\beta+\gamma=\pi+\dfrac{S_{\triangle ABC}}{R^{2}}.$\par
+当$M$ 是一般的曲面(流形)时,定义在$M$上的每一个点$u$ 的 Gauss 曲率为$K(u)$,
+其中 Gauss 曲率刻画流形$M$ 在点$u$ 处的弯曲程度,
+如在半径为 $R$ 的球面上 $K(u)=\frac1{R^2}$ 等,
+故对于流形 $M$ 上的曲边 $\vartriangle ABC$ 且假设三边都是测地线,
+则有 $\alpha+\beta+\gamma=\pi+\displaystyle\int_{D}K(u)\mathrm{d} S$ ,
+其中 $D$ 为流形$M$ 上的单连通区域$^{\mathrm{Q}}\vartriangle ABC$,如果用转角和来表示,
+则上式写为$A(D)+\displaystyle\int_DK(u)\mathrm{d}S=2\pi$,其中 $A(D)$ 表示曲边$\vartriangle ABC$ 在各顶点处的转角和.
+
+但对于三边不是测地线的曲边 $\triangle ABC$ ,则对于 $A(D)+\displaystyle\int_{D}K(u)\mathrm{d}S=2\pi$的左边
+需加一个 连通区域 $D$ 边界上的测地总曲率项为$\displaystyle\int_{\partial D}k_{g}\mathrm{d}s$,
+因此就得到了流形上的Gauss-Bonnet公式：
+$
+	A(D)+\displaystyle\int_{D}K(u)\mathrm{d}S+\displaystyle\int_{\partial D}k_{g}\mathrm{d}s=2\pi.
+$
+若令$\varphi (D)=\dfrac{1}{2\pi }\left(  A(D)+\displaystyle\int_{D}K(u)\mathrm{d}S+\displaystyle\int_{\partial D}k_{g}\mathrm{d}s=2\pi. \right)$,并将$\varphi$推广到流形$M$上的一般曲边多边形
+$P$,我们最终得到以下定理(Gauss-Bonnet-Chern)：
+\begin{theorem}
+	$\varphi (P)\equiv \dfrac{1}{2\pi }\left(  A(P)+\displaystyle\int_{P}K(u)\mathrm{d}S+\displaystyle\int_{\partial P}k_{g}\mathrm{d}s\right)=\chi (P). $
+\end{theorem}
+最后说明一下 Gauss-Bonnet 公式的发展历史 , 1827年 , Gauss
+证明了当 $P$ 是流形 $M$上的一个测地三角形时上述公式成立 ,
+后来 Bonnet 将 Gauss 的结果推广到 $M$ 上的一般三角形的情形 ,
+在1942年又被 Weil 推广到了高维情形 , 1943年陈省身(Chern)给出了高维情形下的
+Gauss-Bonnet 公式的一个新的证明 , 为后来关于示性类的 Chern-Weil 理论打下扎实的基础 ,
+本文到此为止就是将三角形的内角和公式推广到了高维无边流形的 Gauss-Bonnet 公式 ,
+也称作 Gauss-Bonnet-Chern 定理(公式).该公式将几何量曲率和拓扑量Euler数联系在一起,是数学中最为优雅和深刻的结论之一.
+
+\end{document}
