@@ -1,0 +1,100 @@
+%!TEX TS-program = xelatex
+\documentclass[main]{subfiles}
+%这是一个子文件，单独编译时会自动导入main文件的导言区
+%这里可以放自定义命令，不会和别人的冲突请放心
+%但是不能放newtheorem等高级命令，需要请在群里说
+%下面是一些数学命令的简化,可以保留,可以删去,也可以按你的习惯修改
+\def\e{\textup{e}}
+\def\i{\textup{i}}
+\def\T{\textup{T}}
+\def\diag{\textup{diag}}
+\def\id{\textup{id}}
+\newcommand{\toi}[1]{{#1}\to\infty}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\bv}{\mathrm{BV}}
+\newcommand{\ac}{\mathrm{AC}}
+\newcommand{\mr}{\mathbb{R}}
+\newcommand{\mn}{\mathbb{N}}
+\newcommand{\mq}{\mathbb{Q}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\rel}{\text{ rel }}
+\newcommand{\sgn}{\operatorname{sign}}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\bs}{\backslash}
+\renewcommand{\ll}{\lim\limits}
+\renewcommand{\span}{\operatorname{span}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\hom}{\operatorname{Hom}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\begin{document}
+\renewcommand{\filename}{二次互反律}%在这里填你的文件名，避免\label冲突
+%这里开始写你的代码
+\section{二次互反律 \\ Law of quadratic reciprocity}
+
+\subsection{背景与定理内容}
+
+二次方程$x^2-7=0$没有整数解和有理数解, 但有实数解$\pm\sqrt{7}$. 这启示我们, 如果将解的条件放宽 (这里是允许解存在于一个更大的环或域, 如整环$\mz[\sqrt{7}]$或实数域$\mr$), 方程的可解性可能会发生变化. 换个角度, 我们在模$p$ ($p$为素数)的意义下考虑上述方程整数解的存在性, 即允许系数与解变动$p$的若干整数倍. 例如, 取$p=3$, 有$4^2 = 16 \equiv 7 \pmod 3$, 从而在模$3$的意义下$x=4$是上述方程的一个解. 现在考虑一般的情形:
+
+\begin{definition}[二次剩余]
+	设 $p$ 为素数, $n$ 为与 $p$ 互素的整数.
+	称 $n$ 为模 $p$ 的\textbf{二次剩余},
+	如果存在整数 $m$ 使得
+	\(
+	m^2 \equiv n \pmod p
+	\)
+	成立, 否则称 $n$ 为模 $p$ 的\textbf{二次非剩余}.
+\end{definition}
+
+为表征二次剩余与否, 我们定义 \textbf{Legendre 符号}
+\[
+	\left( \frac{n}{p} \right) := \left\{\begin{array}{ll}
+		1,  & \mbox{若 $n$ 是模 $p$ 的二次剩余},  \\
+		-1, & \mbox{若 $n$ 是模 $p$ 的二次非剩余}, \\
+		0,  & \mbox{若 $n=0$}.
+	\end{array}\right.
+\]
+
+两个(奇)素数之间的二次剩余满足如下关系, 称为\textbf{二次互反律}.
+
+\begin{theorem}[二次互反律]
+	对于奇素数$p \neq q$, 有
+	\[\left( \frac{p}{q} \right) \left( \frac{q}{p} \right) = (-1)^{\frac{p-1}{2}\frac{q-1}{2}}.\]
+\end{theorem}
+
+\begin{theorem}[补充定理]
+	对于奇素数$p$, 有 \(\left( \frac{-1}{p} \right) = (-1)^{\frac{p-1}{2}}, \left( \frac{2}{p} \right) = (-1)^{\frac{p^2-1}{8}}.\)
+\end{theorem}
+
+\subsection{应用举例}
+二次互反律可以简化 Legendre 符号的计算, 尤其对于较大的素数. 在此之前, 我们需要列举 Legendre 符号的基本性质:
+
+\begin{proposition}
+	\begin{itemize}
+		\item 设 $p$ 为素数, $a$ 为与 $p$ 互素的整数, $k$ 为任意整数, 有 \(\left( \frac{a}{p} \right) = \left( \frac{a + kp}{p} \right)\).
+		\item \textup{乘性:} 设$p$为素数, $m, n$ 为与 $p$ 互素的整数, 有 \(\left( \frac{m}{p} \right) \left( \frac{n}{p} \right) = \left( \frac{mn}{p} \right)\).
+		\item \textup{Euler 准则:} 设 $p$ 为奇素数, $a$ 为与 $p$ 互素的整数, 有 \(\left(\frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod p\).
+	\end{itemize}
+\end{proposition}
+
+第一条性质从 Legendre 符号的定义即可看出; 第二条性质说明为判断二次方程$x^2 \equiv n \pmod p$的可解性, 只需分别考虑 $n$ 的素因子; 第三条性质为 Legendre 符号的计算提供了一般方法.
+
+\begin{example}[开始的例子]
+	由\textup{Euler 准则}, \(\left( \frac{7}{3} \right) \equiv 7^{\frac{3-1}{2}} \equiv 1 \pmod 3\), 从而 $ 7 $ 是模 $ 3 $ 的二次剩余.
+\end{example}
+
+\begin{example}[大素数]
+	$31$是模$103$的二次非剩余, 因为\(\left(\frac{31}{103}\right)
+	\stackrel{*}{=} -\left(\frac{103}{31}\right)
+	= -\left(\frac{-21}{31}\right)
+	= -\left(\frac{-1}{31}\right) \left(\frac{21}{31}\right)
+	= \left(\frac{21}{31}\right)
+	= \left(\frac{3}{31}\right) \left(\frac{7}{31}\right)
+	\stackrel{*}{=} -\left(\frac{31}{3}\right) \cdot [- \left(\frac{31}{7}\right)]
+	= \left(\frac{1}{3}\right) \left(\frac{3}{7}\right)
+	\stackrel{*}{=} \left(\frac{1}{3}\right) \cdot [- \left(\frac{7}{3}\right)]
+	= -1.\) 其中带$ * $的等号用到了二次互反律.
+\end{example}
+
+\end{document}
