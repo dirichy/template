@@ -30,12 +30,12 @@
 \begin{document}
 	\renewcommand{\filename}{26. 多边形外角和}%在这里填你的文件名，避免\label冲突
 	%这里开始写你的代码
-\section*{26. 多边形外角和}
-\subsection*{定理叙述}
+\section{26. 多边形外角和}
+\subsection{定理叙述}
 	在平面中, 任意凸多边形的外角和都是$360^{\circ}$.
 	
 	尽管这一结论看起来过于显然, 从多边形的任一顶点出发, 沿着多边形的边走一圈回到原点, 转过的角之和一定是$360^{\circ}$, 但这一结论并不是平面几何的公理, 仍然需要证明.
-\subsection*{定理证明}
+\subsection{定理证明}
 	\begin{theorem}\label{key}
 		在平面中, 若两直线平行, 则内错角相等.
 	\end{theorem}
@@ -51,15 +51,19 @@
 	\end{proof}
 	
 	\begin{corollary}\label{sum of interior angles}
-		在平面中, 任意$n$边形的内角和都是$(n-2)\cdot 180^{\circ}$.
+		在平面中, 任意凸$n$边形的内角和都是$(n-2)\cdot 180^{\circ}$.
 	\end{corollary}
 	
-	\begin{corollary}
+	\begin{corollary}\label{sum of exterior angles}
 		在平面中, 任意凸多边形的外角和都是$360^{\circ}$.
 	\end{corollary}
 	\begin{proof}
 		对于凸多边形而言, 每个顶点处内角、外角之和都是$180^{\circ}$, 那么$n$个顶点处的内外角之和就是$n\cdot 180^{\circ}$; 而推论\ref{sum of interior angles}指出内角和是$(n-2)\cdot 180^{\circ}$, 因此外角和就是$n\cdot 180^{\circ}-(n-2)\cdot 180^{\circ}=360^{\circ}$.
 	\end{proof}
+	
+	\begin{remark}
+		\textup{推论\ref{sum of interior angles}、\ref{sum of exterior angles}对于一般的多边形(即, 可能有大于$180^{\circ}$的内角)是否成立呢? 笔者暂未想出平面几何知识下严谨的证明, 读者可以尝试证明一下:)}
+	\end{remark}
 	
 	{\small
 		\begin{thebibliography}{9}

@@ -32,8 +32,8 @@
 \begin{document}
 \renewcommand{\filename}{16. Cayley–Hamilton 定理}%在这里填你的文件名，避免\label冲突
 %这里开始写你的代码
-\section*{16. Cayley–Hamilton 定理}
-	\subsection*{定理内容}
+\section{16. Cayley–Hamilton 定理}
+	\subsection{定理内容}
 		在线性代数中，Cayley–Hamilton 定理表明对于任意交换环上的方阵(例如实方阵或复方阵)而言, 其特征多项式就是该矩阵的零化多项式. 
 		
 		对于交换环$R$上的$n\times n$的矩阵$\boldsymbol{A}$, 设$\boldsymbol{I}_n$是$R$上$n\times n$的单位矩阵, 那么$\boldsymbol{A}$的特征多项式是$p_{\boldsymbol{A}}(\lambda)=\det(\lambda \boldsymbol{I}_n-\boldsymbol{A})$, 其中$\det$表示取行列式, $\lambda\in R$是该多项式的未定元. Cayley–Hamilton定理断言: $p_{\boldsymbol{A}}(\boldsymbol{A})=\boldsymbol{O}$, 其中$\boldsymbol{O}$表示零矩阵.
@@ -71,7 +71,7 @@
 		
 		Cayley-Hamilton定理是一个十分优雅的定理. Hamilton首先于1853年从四元数的线性函数的逆的角度出发证明了该定理的一个特殊形式, 对应$4\times 4$的实矩阵或者$2\times 2$的复矩阵; Cayley在1858年叙述了该定理对于$3\times 3$及更低阶数方阵的结论, 但只正式出版了对于$2\times 2$矩阵的证明(\textit{读者也可尝试给出该情形下的证明}). 至于一般的$n\times n$的矩阵, Cayley认为“没有必要对一般情况下的定理给出正式的证明, 这纯粹是没有思维含量的苦力活”. 一般情形下的证明由Ferdinand Frobenius于1878年首次公开发表, 他通过引入极小多项式的概念完成了这一证明.
 		
-	\subsection*{定理意义}
+	\subsection{定理意义}
 		Cayley–Hamilton定理\textbf{降低了寻找矩阵的零化多项式的难度}. 从前将$n$阶方阵全体看作一个$n^{2}$维的向量空间时, 我们只知道每个方阵都存在零化多项式, 并且次数最多是$n^2$; 有了Cayley–Hamilton定理之后我们发现特征多项式就是一个零化多项式, 次数也从原来的$n^2$降成了$n$. 
 	
 		既然零化多项式已经容易找到, 我们可以借此\textbf{减少一些矩阵运算的计算量}. 仍以$\boldsymbol{A}=\begin{pmatrix}
