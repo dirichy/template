@@ -1,0 +1,77 @@
+%!TEX TS-program = xelatex
+\documentclass[main]{subfiles}
+%这是一个子文件，单独编译时会自动导入main文件的导言区
+%这里可以放自定义命令，不会和别人的冲突请放心
+%但是不能放newtheorem等高级命令，需要请在群里说
+%下面是一些数学命令的简化,可以保留,可以删去,也可以按你的习惯修改
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\def\e{\textup{e}}
+\def\i{\textup{i}}
+\def\dif{\textup{d}}
+\def\T{\textup{T}}
+\def\diag{\textup{diag}}
+\def\id{\textup{id}}
+\newcommand{\toi}[1]{{#1}\to\infty}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\bv}{\mathrm{BV}}
+\newcommand{\ac}{\mathrm{AC}}
+\newcommand{\mr}{\mathbb{R}}
+\newcommand{\mn}{\mathbb{N}}
+\newcommand{\mq}{\mathbb{Q}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\rel}{\text{ rel }}
+\newcommand{\sgn}{\operatorname{sign}}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\bs}{\backslash}
+\newcommand{\Span}{\operatorname{span}}
+\renewcommand{\ll}{\lim\limits}
+\renewcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\hom}{\operatorname{Hom}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\begin{document}
+\renewcommand{\filename}{Betrand 假设}%在这里填你的文件名，避免\label冲突
+%这里开始写你的代码
+\section{Betrand 假设}
+\subsection{背景介绍}
+素数分布是数论中研究素数性质的困难且重要的课题, 1975年, 数论学家唐·察吉尔评论素数: “ 像生长于自然数间的杂草，似乎不服从概率之外的法则，（但又）表现出惊人的规律性，并有规范其行为之法则，且以军事化的精准度遵守着这些法则。 ”
+\par 一个明显的结论是相邻的两个素数可以间隔任意远, 因为对于 $m>2$,  $m!+2, m!+3, \cdots, m!+m$ 这连续的 $m-1$ 个数都不是素数。而Bertrand 假设告诉了人们相邻的两个素数不会离得太远, 它说的是 $n$ 和 $2n$ 之间有一个素数 $(n>2)$, 这对素数分布作了非常粗略的描述, 但也十分直观。
+\subsection{定理叙述}
+定理的常见形式有以下两种
+\begin{theorem}[Betrand 假设]
+对每个整数 $n > 1$, 都存在素数 $p$ 使得 $n < p <2n$
+\end{theorem}
+\begin{theorem}[另一种表述]
+记第 $n$ 个素数是 $p_n$ $(p_1 = 2, p_2 = 3 , \cdots)$ , 则 $p_{n+1} < 2p_n$
+\end{theorem}
+
+\subsection{证明概述}
+Betrand 假设有一个漂亮的初等证明, 为此我们引入如下几个简单的引理
+\begin{lemma} [Legendre 定理]
+    $n$ 为正整数, 则 $n!$ 素因子分解中素数 $p$ 的幂次为 $\sum_{k \geqslant 1} \lfloor \frac{n}{p^k} \rfloor $
+\end{lemma}
+\begin{lemma}
+    对所有实数 $x \geqslant 2$, 成立 $\prod_{\text{素数} p \leqslant x } p \leqslant 4^{x-1}$
+\end{lemma}
+\begin{lemma}
+    $n$ 为正整数, 则组合数 $C_{n}^{2n} \geqslant \frac{4^n}{2n}$,
+\end{lemma}
+\begin{lemma}
+    对于 $n>2$ 为正整数, 满足 $\frac{2}{3}n < p \leqslant n $ 的素数 $p$ 不会整除 $C_{n}^{2n}$
+\end{lemma}
+\begin{proof}[Betrand 假设]
+    首先利用引理 1来估计 $C_{n}^{2n} = \frac{(2n)!}{n! \cdot n!}$ 中素数 $p$ 的幂次: 
+    \[ \sum_{k \geqslant 1} \lfloor \frac{2n}{p^k} \rfloor - 2 \lfloor \frac{n}{p^k} \rfloor  ~ \leqslant ~ \max \{ ~ r ~ |  ~ p^r < 2n \}\]
+    不等号是因为每个加项  $\lfloor \frac{2n}{p^k} \rfloor - 2 \lfloor \frac{n}{p^k} \rfloor < \frac{2n}{p^k} - 2 (\frac{n}{p^k} - 1) = 2$, 故至多为 $1$, 且在 $p^k > 2n $ 时为 $0$\\
+    这样一来, 我们就知道, 在 $C_{n}^{2n}$ 中, 大于 $\sqrt{2n}$ 的素因子的次数最多是 $1$, 而小于等于 $\sqrt{2n}$ 的素因子的次数则不超过2n, 同时小于等于 $\sqrt{2n} $ 的素数不超过 $\sqrt{2n}$ 个, 结合引理 $3,4$, 我们有
+    \[ \frac{4^n}{2n} \leqslant C_{n}^{2n} \leqslant \prod_{\text{素数 }p \leqslant \sqrt{2n}} p  \cdot \prod_{\text{素数 }\sqrt{2n} < p \leqslant \frac{2}{3}n} p \cdot \prod_{\text{素数 }n < p < 2n} p \]
+    若 Betrand 假设不成立, 则乘积的最后一项为 $0$, 再结合引理 $2$ 即可得到
+    \[ \frac{4^n}{2n} \leqslant (2n)^{\sqrt{2n}} \cdot 4^{\frac{2}{3}n}  \]
+    对于 $n>4000$ 这个式子是不成立的, 而对于较小的 $n$ 可以直接验证, 这就完成了证明
+\end{proof}
+
+\subsection{在素数定理下看 Betrand 假设}
+素数定理告诉我们 $x$ 之前的素数大约有 $\frac{x}{\ln x}$ 个, 所以 $2 x$ 以内的素数几乎是 $x$ 以内素数的两倍(项 $\ln 2x$ 和 $\ln x$ 的比值趋于 $1$)。因此, 当 $n$ 很大时, $n$ 和 $2 n$ 之间的素数数量大致为 $\frac{n}{\ln n}$, 比 Bertrand 假设所保证的要多得多。
+\par 进一步的, Legendre 猜想问到 $n^2$ 与 $(n+1)^2$ 之间是否一定有一个素数？这无法直接用素数定理得到, 目前也依然悬而未决, 期待大家的努力。
+\end{document}
