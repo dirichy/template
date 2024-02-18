@@ -30,63 +30,54 @@
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \begin{document}
-\renewcommand{\filename}{No.16Theorem}%在这里填你的文件名，避免\label冲突
+\renewcommand{\filename}{16. Cayley–Hamilton 定理}%在这里填你的文件名，避免\label冲突
 %这里开始写你的代码
-\section{Cayley–Hamilton 定理}
-\subsection{定理内容}
-在线性代数中，Cayley–Hamilton 定理表明对于任意交换环上的方阵(例如实方阵或复方阵)而言, 其特征多项式就是该矩阵的零化多项式.
-
-对于交换环$R$上的$n\times n$的矩阵$\boldsymbol{A}$, 设$\boldsymbol{I}_n$是$R$上$n\times n$的单位矩阵, 那么$\boldsymbol{A}$的特征多项式是$p_{\boldsymbol{A}}(\lambda)=\det(\lambda \boldsymbol{I}_n-\boldsymbol{A})$, 其中$\det$表示取行列式, $\lambda\in R$是该多项式的变量. Cayley–Hamilton定理断言: $p_{\boldsymbol{A}}(\boldsymbol{A})=\boldsymbol{O}$, 其中$\boldsymbol{O}$表示零矩阵.
-
-举一简单的例子以助理解: 假设$\boldsymbol{A}=\begin{pmatrix}
-		1 & 2 \\
-		3 & 4
-	\end{pmatrix}$, 那么$\boldsymbol{A}$的特征多项式为
-\[\begin{aligned}
-		p_{\boldsymbol{A}}(\lambda)=\det(\lambda \boldsymbol{I}_2-\boldsymbol{A})
-		 & =\begin{vmatrix}
-			    \lambda-1 & -2        \\
-			    -3        & \lambda-4
-		    \end{vmatrix}                                  \\
-		 & =(\lambda-1)(\lambda-4)-(-2)(-3)=\lambda^{2}-5\lambda-2
-	\end{aligned}\]
-Cayley–Hamilton定理声称: 将上式中的$\lambda$换成$\boldsymbol{A}$, 常数项用单位矩阵替换, 则一定有
-\[p_{\boldsymbol{A}}(\boldsymbol{A})=\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}\]
-真有这么巧吗? 让我们验算一下:
-\[\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\begin{pmatrix}
-		7  & 10 \\
-		15 & 22
-	\end{pmatrix}
-	-\begin{pmatrix}
-		5  & 10 \\
-		15 & 20
-	\end{pmatrix}
-	-\begin{pmatrix}
-		2 & 0 \\
-		0 & 2
-	\end{pmatrix}
-	=\begin{pmatrix}
-		0 & 0 \\
-		0 & 0
-	\end{pmatrix}\]
-
-\subsection{定理意义}
-Cayley–Hamilton定理极大地\textbf{降低了寻找矩阵的零化多项式的难度}. 如果多项式$f(x)=a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{1}x+a_0$使得$f(\boldsymbol{A})=a_{k}\boldsymbol{A}^{k}+a_{k-1}\boldsymbol{A}^{k-1}+\cdots+a_{1}\boldsymbol{A}+a_0\boldsymbol{I}_n=\boldsymbol{O}$, 就称多项式$f(x)$是矩阵$\boldsymbol{A}$的零化多项式. 零化多项式对于研究矩阵的代数性质有很大的帮助. 从前将$n$阶方阵全体看作一个$n^{2}$维的向量空间时, 我们只知道每个方阵都存在零化多项式, 并且次数最多是$n^2$; 有了Cayley–Hamilton定理之后我们发现特征多项式就是一个零化多项式, 次数也从原来的$n^2$降成了$n$. 对于阶数较高的方阵, 直接计算其特征多项式比较困难, 可结合牛顿恒等式($n=2$时就是初中时学过的韦达定理)计算其各项系数.
-
-既然零化多项式已经容易找到, 我们可以\textbf{减少一些矩阵运算的计算量}. 仍以$\boldsymbol{A}=\begin{pmatrix}
-		1 & 2 \\
-		3 & 4
-	\end{pmatrix}$为例,
-经过计算其特征多项式我们得到
-$\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}$,
-那么$\boldsymbol{A}^2=5\boldsymbol{A}+2\boldsymbol{I}_2$,
-也就是说计算$\boldsymbol{A}^2$转化为计算$\boldsymbol{A}$的线性组合了.
-对于一般的$n$阶方阵$\boldsymbol{A}$,
-这意味着计算$\boldsymbol{A}^{k}$可以化归为计算$\boldsymbol{A}^{k-1}$,
-起到了降幂的作用. 计算矩阵的逆也变得更简单了: 仍以$\boldsymbol{A}=\begin{pmatrix}
-		1 & 2 \\
-		3 & 4
-	\end{pmatrix}$为例, 由$\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}$得到$\dis\boldsymbol{A}\cdot\frac{1}{2}(\boldsymbol{A}-5\boldsymbol{I}_2)=\boldsymbol{I}_2$, 于是直接得到$\dis\boldsymbol{A}^{-1}=\frac{1}{2}(\boldsymbol{A}-5\boldsymbol{I}_2)$, 也就是说简化了逆矩阵的计算. 对于一般的$n$阶方阵也可以沿用相同的思路去计算矩阵的逆. 结合Cayley–Hamilton定理与多项式余式、Sylvester公式等知识还可以进行更多矩阵相关的巧妙计算.
-
-Cayley–Hamilton定理的证明有诸多版本, 最简单的版本利用了伴随矩阵: 设$\boldsymbol{A}$的特征多项式是$p(t)$, 又设$\boldsymbol{B}:=\adj(t\boldsymbol{I}_n-\boldsymbol{A})$, 则根据伴随矩阵的定义有$(t\boldsymbol{I}_n-\boldsymbol{A})\boldsymbol{B}=\det(t\boldsymbol{I}_n-\boldsymbol{A})\boldsymbol{I}_n=p(t)\boldsymbol{I}_n$, 按$t$的幂次展开并比较该等式左右两侧系数, 再经过简单的计算即可得证. 从抽象代数的视角来看, 这实际上是建立了从矩阵环到矩阵多项式环的一个自然的环同构. 从Zariski拓扑的观点去看, Cayley–Hamilton定理还说明可对角化矩阵在全体方阵中是稠密的.
+\section*{16. Cayley–Hamilton 定理}
+	\subsection*{定理内容}
+		在线性代数中，Cayley–Hamilton 定理表明对于任意交换环上的方阵(例如实方阵或复方阵)而言, 其特征多项式就是该矩阵的零化多项式. 
+		
+		对于交换环$R$上的$n\times n$的矩阵$\boldsymbol{A}$, 设$\boldsymbol{I}_n$是$R$上$n\times n$的单位矩阵, 那么$\boldsymbol{A}$的特征多项式是$p_{\boldsymbol{A}}(\lambda)=\det(\lambda \boldsymbol{I}_n-\boldsymbol{A})$, 其中$\det$表示取行列式, $\lambda\in R$是该多项式的未定元. Cayley–Hamilton定理断言: $p_{\boldsymbol{A}}(\boldsymbol{A})=\boldsymbol{O}$, 其中$\boldsymbol{O}$表示零矩阵.
+		
+		\textbf{举一简单的例子以助理解}: 假设$\boldsymbol{A}=\begin{pmatrix}
+			1 & 2 \\
+			3 & 4
+		\end{pmatrix}$, 那么$\boldsymbol{A}$的特征多项式为
+		\[\begin{aligned}
+			p_{\boldsymbol{A}}(\lambda)=\det(\lambda \boldsymbol{I}_2-\boldsymbol{A})&=\begin{vmatrix}
+				\lambda-1 & -2 \\
+				-3 & \lambda-4
+			\end{vmatrix}\\
+			&=(\lambda-1)(\lambda-4)-(-2)(-3)=\lambda^{2}-5\lambda-2
+		\end{aligned}\]
+		Cayley–Hamilton定理声称: 将上式中的$\lambda$换成$\boldsymbol{A}$, 常数项用单位矩阵补上, 则一定有
+		\[p_{\boldsymbol{A}}(\boldsymbol{A})=\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}\]
+		真有这么巧吗? 让我们验算一下: 
+		\[\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\begin{pmatrix}
+			7 & 10 \\
+			15 & 22
+		\end{pmatrix}
+		-\begin{pmatrix}
+			5 & 10 \\
+			15 & 20
+		\end{pmatrix}
+		-\begin{pmatrix}
+			2 & 0 \\
+			0 & 2
+		\end{pmatrix}
+		=\begin{pmatrix}
+			0 & 0 \\
+			0 & 0
+		\end{pmatrix}\]
+		
+		Cayley-Hamilton定理是一个十分优雅的定理. Hamilton首先于1853年从四元数的线性函数的逆的角度出发证明了该定理的一个特殊形式, 对应$4\times 4$的实矩阵或者$2\times 2$的复矩阵; Cayley在1858年叙述了该定理对于$3\times 3$及更低阶数方阵的结论, 但只正式出版了对于$2\times 2$矩阵的证明(\textit{读者也可尝试给出该情形下的证明}). 至于一般的$n\times n$的矩阵, Cayley认为“没有必要对一般情况下的定理给出正式的证明, 这纯粹是没有思维含量的苦力活”. 一般情形下的证明由Ferdinand Frobenius于1878年首次公开发表, 他通过引入极小多项式的概念完成了这一证明.
+		
+	\subsection*{定理意义}
+		Cayley–Hamilton定理\textbf{降低了寻找矩阵的零化多项式的难度}. 从前将$n$阶方阵全体看作一个$n^{2}$维的向量空间时, 我们只知道每个方阵都存在零化多项式, 并且次数最多是$n^2$; 有了Cayley–Hamilton定理之后我们发现特征多项式就是一个零化多项式, 次数也从原来的$n^2$降成了$n$. 
+	
+		既然零化多项式已经容易找到, 我们可以借此\textbf{减少一些矩阵运算的计算量}. 仍以$\boldsymbol{A}=\begin{pmatrix}
+			1 & 2 \\
+			3 & 4
+		\end{pmatrix}$为例, 经过计算其特征多项式我们得到$\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}$, 那么$\boldsymbol{A}^2=5\boldsymbol{A}+2\boldsymbol{I}_2$, 起到了降幂的作用. 计算矩阵的逆也变得更简单了: 由$\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}$得到$\dis\boldsymbol{A}\cdot\frac{1}{2}(\boldsymbol{A}-5\boldsymbol{I}_2)=\boldsymbol{I}_2$, 于是直接得到$\dis\boldsymbol{A}^{-1}=\frac{1}{2}(\boldsymbol{A}-5\boldsymbol{I}_2)$. 对于一般的$n$阶方阵也可以沿用相同的思路去降幂、计算矩阵的逆. 当$n$较大时, 可利用牛顿恒等式计算特征多项式的系数. 结合多项式余式、Sylvester公式等知识还可以进行更多矩阵相关的巧妙计算. 
+		
+		Cayley–Hamilton定理的完整证明有诸多版本, 目前为止最简单的版本利用了伴随矩阵: 设$\boldsymbol{A}$的特征多项式是$p(t)$, 又设$\boldsymbol{B}:=\adj(t\boldsymbol{I}_n-\boldsymbol{A})$, 则根据伴随矩阵的定义有$(t\boldsymbol{I}_n-\boldsymbol{A})\boldsymbol{B}=\det(t\boldsymbol{I}_n-\boldsymbol{A})\boldsymbol{I}_n=p(t)\boldsymbol{I}_n$, 按$t$的幂次展开并比较该等式左右两侧, 再经过简单的计算即可得证. 从抽象代数的视角来看, 这实际上是建立了从矩阵环到矩阵多项式环的一个自然的环同态. 此外, 从Zariski拓扑的观点去看, Cayley–Hamilton定理还说明可对角化矩阵在全体方阵中是稠密的.
 \end{document}
