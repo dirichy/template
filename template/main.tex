@@ -77,10 +77,8 @@
 \renewcommand{\eqref}[1]{\abseqref{\expandafter\filename:#1}}
 \renewcommand{\label}[1]{\abslabel{\expandafter\filename:#1}}
 }
-\let\oldsection\section
-\renewcommand{\section}[1]{\oldsection*{#1}}
-\let\oldsubsection\subsection
-\renewcommand{\subsection}[1]{\oldsubsection*{#1}}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
 \newcounter{files}
 \begin{document}
 \forloop{files}{1}{\value{files}<28}{%
