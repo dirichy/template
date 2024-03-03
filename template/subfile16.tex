@@ -80,4 +80,5 @@ Cayley–Hamilton定理\textbf{降低了寻找矩阵的零化多项式的难度}
 	\end{pmatrix}$为例, 经过计算其特征多项式我们得到$\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}$, 那么$\boldsymbol{A}^2=5\boldsymbol{A}+2\boldsymbol{I}_2$, 起到了降幂的作用. 计算矩阵的逆也变得更简单了: 由$\boldsymbol{A}^2-5\boldsymbol{A}-2\boldsymbol{I}_2=\boldsymbol{O}$得到$\dis\boldsymbol{A}\cdot\frac{1}{2}(\boldsymbol{A}-5\boldsymbol{I}_2)=\boldsymbol{I}_2$, 于是直接得到$\dis\boldsymbol{A}^{-1}=\frac{1}{2}(\boldsymbol{A}-5\boldsymbol{I}_2)$. 对于一般的$n$阶方阵也可以沿用相同的思路去降幂、计算矩阵的逆. 当$n$较大时, 可利用牛顿恒等式计算特征多项式的系数. 结合多项式余式、Sylvester公式等知识还可以进行更多矩阵相关的巧妙计算.
 
 Cayley–Hamilton定理的完整证明有诸多版本, 目前为止最简单的版本利用了伴随矩阵: 设$\boldsymbol{A}$的特征多项式是$p(t)$, 又设$\boldsymbol{B}:=\adj(t\boldsymbol{I}_n-\boldsymbol{A})$, 则根据伴随矩阵的定义有$(t\boldsymbol{I}_n-\boldsymbol{A})\boldsymbol{B}=\det(t\boldsymbol{I}_n-\boldsymbol{A})\boldsymbol{I}_n=p(t)\boldsymbol{I}_n$, 按$t$的幂次展开并比较该等式左右两侧, 再经过简单的计算即可得证. 从抽象代数的视角来看, 这实际上是建立了从矩阵环到矩阵多项式环的一个自然的环同态. 此外, 从Zariski拓扑的观点去看, Cayley–Hamilton定理还说明可对角化矩阵在全体方阵中是稠密的.
+
 \end{document}
