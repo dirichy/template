@@ -6,56 +6,54 @@
 %但是不能放newtheorem等高级命令,需要请在群里说
 \begin{document}
 \renewcommand{\filename}{No.17Theorem}%在这里填你的文件名,避免\label冲突
-\section{ \(\pi\)是超越数}
+\section{超越数}
 \subsection{背景介绍}
-超越一词最早在莱布尼兹1962年的一篇论文中出现,用来描述函数.
+超越一词最早在莱布尼兹（Leibniz）1962年的一篇论文中出现,用来描述函数.
 他证明了 \(\sin x\)是 \(x\)的超越函数.
+
 现代超越数的概念最早由欧拉在18世纪提出.
-1844年,刘维尔证明了超越数存在,并在1851年给出了第一个例子：
- \(L_b:=\sum_{n=1}^{\infty} 10^{-n!}\).
-1873年,埃尔米特证明了自然对数的底 \(\mathrm{e}\)是超越数.
-1874年,康托证明了实数几乎是超越数,并给出了一个构造超越数的系统方法.
-1882年,林德曼证明了 \(\pi\)是超越数.
+
+1844年,刘维尔（Liouville）证明了超越数存在,并在1851年给出了第一个例子：
+\(L_b:=\sum_{n=1}^{\infty} 10^{-n!}\).
+
+1873年,埃尔米特（Hermite）证明了自然对数的底 \(\mathrm{e}\)是超越数.
+
+1874年,康托（Cantor）证明了实数几乎是超越数,并给出了一个构造超越数的系统方法.
+
+1882年,林德曼（Lindeman）证明了 \(\pi\)是超越数.
+
 后来,又有许多数,如 \(\mathrm{e}^\pi,2^{\sqrt{2}},\sin 1,\ln a,e^b\)等,其中 \(a\)是不为 \(1\)的正有理数, \(b\)是不为 \(0\)的代数数.
-\subsection{定理叙述}
+\subsection{定理概述}
 \begin{definition}\label{def:1}
-	若一个复数 \(x \in \mathbb{C}\)不是任何一个非零有理系数多项式的根,则称其为超越数.
-	否则称其为代数数.
+  若一个复数 \(x \in \mathbb{C}\)不是任何一个非零整系数多项式的根,则称其为超越数.
+  否则称其为代数数.
 \end{definition}
 \begin{theorem}\label{the:1}
-	 \(\pi\)是超越数,即对于任何非零有理系数多项式 \(f(x)\),都有 \(f(\pi)\neq 0\).
+  \(\sqrt{2}\)是代数数，所有有理数都是代数数。
 \end{theorem}
-\subsection{证明概述}
-证明 \(\pi\)是无理数很简单,但是证明其是超越数却很难.
-我们将使用林德曼-魏尔斯特拉斯定理证明 \(\pi\)是超越数,在此之前我们需要先做一些基础的准备：
-\begin{definition}\label{def:2}
-	设 \(\alpha_1,\cdots,\alpha_n \in \mathbb{C}\).若对于不全为 \(0\)的 \(b_1,\cdots,b_n \in \mathbb{Q}\),都有 \(\sum_{i=1}^{n} b_i \alpha_i \neq 0\),则称它们在 \(\mathbb{Q}\)上线性无关.
-	从定义可以得到,一个不为 \(0\)的复数自己本身一定是线性无关的.
-
-	设 \(y_1,\cdots,y_n \in \mathbb{C}\).若对于非 \(0\)的有理系数 \(n\)元多项式 \(f(x_1,\cdots,x_n)\),均有 \(f(y_1,\cdots,y_n) \neq 0\),则称它们在 \(\mathbb{Q}\)上代数无关.
-	从定义可以得到,一个复数自己是代数无关的当且仅当这个复数是超越数.
-\end{definition}
-\begin{definition}\label{def:3}
-	对于复数 \(z \in \mathbb{C}\),令 \(\mathrm{e}^z:=\sum_{k=0}^{\infty}\frac{z^k}{k!}\).
-	这样我们就将 \(f(x)=\mathrm{e}^x\)延拓到了 \(\mathbb{C}\)上.
-\end{definition}
-\begin{lemma}\label{lem:2}
-	全体代数数构成一个数域,即代数数的和、差、积、商仍为代数数.
-\end{lemma}
-至此基本的概念已经建立,下面不加证明地叙述这个重要的定理：
-\begin{lemma}[林德曼-魏尔斯特拉斯定理]\label{lem:1}
-	若 \(\alpha_1,\alpha_2,\cdots,\alpha_n \in \mathbb{C}\)都是代数数,且他们在 \(\mathbb{Q}\)上线性无关,
-	则 \(\mathrm{e}^{\alpha_1},\mathrm{e}^{\alpha_2},\cdots,\mathrm{e}^{\alpha_n}\)在 \(\mathbb{Q}\)上代数无关.
-\end{lemma}
-准备工作完毕,下面我们来证明 \(\pi\)是超越数.
 \begin{proof}
-	由指数函数的定义知 \(\mathrm{e}^{\mathrm{i}\theta}:=\sum_{k=0}^{\infty}\frac{(\mathrm{i}\theta)^k}{k!}\).
-	整理可得 \(\mathrm{e}^{\mathrm{i}\theta}=\sum_{k=0}^{\infty}(-1)^k\frac{\theta^{2k}}{(2k)!}+\mathrm{i}\sum_{k=0}^{\infty}(-1)^k\frac{\theta^{2k +1}}{(2k +1)!}=\cos \theta + \mathrm{i} \sin \theta\).
-	从而 \(\mathrm{e}^{\mathrm{i}\pi}=\cos \pi + \mathrm{i}\sin \pi=-1\).
-	故 \(\mathrm{e}^{\mathrm{i}\pi}+1=0\),从而 \(\mathrm{e}^{\mathrm{i}\pi}\)在 \(\mathbb{Q}\)上是代数相关的.
-	由引理\ref{lem:1}可知 \(\mathrm{i}\pi\)不是代数数.
-	又由引理\ref{lem:2}可知,若 \(\pi\)是代数数,则由于 \(\mathrm{i}^2+1=0\)知 \(\mathrm{i}\)是代数数,从而 \(\mathrm{i}\pi\)是代数数,矛盾！
-	故 \(\pi\)不是代数数,从而是超越数.
+  对于有理数\(\frac{p}{q}\)而言，我们令\(f(x)=qx-p\)，则易知\(f(\frac{p}{q})=0\)。
+  故\(\frac{p}{q}\)是整系数多项式\(f(x)=qx-p\)的根，从而是代数数。
+
+  对于\(\sqrt{2}\)而言，我们令\(g(x)=x^2-2\)，则有\(g(\sqrt{2})=0\)。
+  故\(\sqrt{2}\)是有理系数多项式\(g(x)=x^2-2\)的根，从而也是代数数。
 \end{proof}
 
+代数数域是很大的数域，我们日常见到的很多数，如全体有理数，以及有有理数进行加减乘除开\(n\)次根号得到的数字都是代数数。
+而且，以代数数为系数的多项式的根也都是代数数。
+似乎代数数已经足够满足我们的需要了，我们目前的所有运算都在代数数域是封闭的。
+那么，我们为什么需要超越数呢？
+\begin{theorem}\label{the:2}
+  自然对数的底\(\mathrm{e}\)是超越数。
+\end{theorem}
+数学家们先后发现\(\mathrm{e}\)不仅是无理数，还是超越数。
+随后数学家们发现，代数数域对取极限是不封闭的，通过取极限的手段可以得到很多的超越数。
+
+后来\(\pi\)被林德曼用代数学的方法证明是超越数。之后数学家们又陆续发现了许多超越数。
+随着一个个超越数的发现，我们发现超越数是广泛存在的。
+康托的结论更是说明了实数几乎全部都是超越数。
+
+\subsection{定理意义}
+超越数相关的证明，给数学带来了大的变革，解决了几千年来数学上的难题——尺规作图三大问题，即倍立方问题、三等分任意角问题和化圆为方问题。
+随着超越数的发现，这三大问题被证明为不可能。
 \end{document}

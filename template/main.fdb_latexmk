@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1709459651 "main.xdv" "main.pdf" "main" 1709459652 0
-  "main.xdv" 1709459651 273972 2a029a4236db20c2bab7705b25aabad1 "xelatex"
+["xdvipdfmx"] 1709611493 "main.xdv" "main.pdf" "main" 1709611494 0
+  "main.xdv" 1709611493 274352 acfce01e852c5d9ae81b8ebc8f309a2a "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1709459649 "main.tex" "main.xdv" "main" 1709459652 0
+["xelatex"] 1709611491 "main.tex" "main.xdv" "main" 1709611494 0
   "/System/Library/Fonts/Menlo.ttc" 1706894371 2156036 ec05dfca6821d85440da0899493002c3 ""
   "/System/Library/Fonts/PingFang.ttc" 1706894371 77913936 fbbb35ac2c1edab8242d84cc60900322 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -192,14 +192,14 @@
   "Konigsberg_bridges.pdf" 1709458436 300106 1b2c10afdca960660ec321153aec9c12 ""
   "cubic.png" 1709458436 18094 fa3d33e358d7381dd5d6f4a2fd8dce00 ""
   "fixdif.sty" 1709458436 4628 484461b4b02f7e18054818627431f3be ""
-  "main.aux" 1709459651 9620 884d16bd627887a97e958849934fd2ae "xelatex"
+  "main.aux" 1709611493 9621 aac4b47598939cac4a92c8206940653d "xelatex"
   "main.tex" 1709458436 2586 26f61f40dc44aec0a92913f2ac0b5a71 ""
   "plane1.pdf" 1709458436 111201 8e8fe8ad32479d2424eb837912da66c4 ""
   "plane2.pdf" 1709458436 135874 e2942dc3d1ceb4ce9ef3d9841e26f2d6 ""
   "plane3.pdf" 1709458436 133948 aea193e5e256e2128a18f0e3deb685f1 ""
   "plane4.pdf" 1709458436 131316 c88b569fd6e457ef40bb9da8543d7fc5 ""
   "pnt1.png" 1709458436 59954 a7d2f4d28990235fc9ef2c0a88a1d4e0 ""
-  "subfile10.tex" 1709458436 3987 a9f744b30a5bcba0e13bac56e221bcd4 ""
+  "subfile10.tex" 1709611487 3750 c404d9795254669857b6c55753f1bcee ""
   "subfile11.tex" 1709458436 4963 0163aab437269686e4943b90408f9fcd ""
   "subfile12.tex" 1709458436 4700 ec411f09cc45a8c877cbe7a58502b360 ""
   "subfile14.tex" 1709458436 7471 5c9be0ec3deca7369ee5f0b37fb7f689 ""
@@ -214,7 +214,7 @@
   "subfile4.tex" 1709458436 3831 27a442eb7f5ca6ba934039ab902d99af ""
   "subfile5.tex" 1709458436 4745 6e5091682a0098acfba31ceacd3f5e4c ""
   "subfile7.tex" 1709458436 4825 69a49fc441d325af7ed0f2d80705c91e ""
-  "subfile9.tex" 1709459648 4838 c966c446e42260768cfb96875b9df408 ""
+  "subfile9.tex" 1709459961 4838 c966c446e42260768cfb96875b9df408 ""
   "zxdl.png" 1709458436 178030 ca88ce9ee798b89de7748d0928fcf74e ""
   (generated)
   "main.aux"
